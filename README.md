@@ -1,52 +1,45 @@
-# Daraksha Overseas LLP - Website
+# Daraksha Overseas LLP Website
 
-Static website (HTML + CSS + JavaScript). No build step, no database.
+A static, single-page B2B recruitment website built with plain HTML, CSS and JavaScript.
 
-## Folder layout
-- index.html              - the whole site (single page)
-- assets/css/style.css    - design
-- assets/js/config.js     - YOUR phone, email, address, form settings (edit this)
-- assets/js/main.js       - menu, animations, form logic
-- images/                 - logo, favicon, photos
-- favicon.ico             - browser tab icon
+## Publish on GitHub Pages
+1. Create a new GitHub repository, for example `daraksha-overseas`.
+2. Upload everything inside this folder to the repository root. Keep the `assets` and `images` folders intact.
+3. In GitHub, open **Settings > Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select `main` and `/ (root)`, then click **Save**.
+6. GitHub will provide a public `https://<username>.github.io/<repository>/` address after deployment.
 
-## 1. Fill in your details (2 minutes)
-Open assets/js/config.js and add phone, email, office address, hours and the form endpoint.
-Anything left empty is hidden automatically.
+## Custom domain and DNS
+1. In **Settings > Pages > Custom domain**, enter your domain, for example `www.example.com`, and save. GitHub creates a `CNAME` file.
+2. At your DNS provider, create a `CNAME` record: Host `www`, Value `<username>.github.io`.
+3. For the apex domain, create these GitHub Pages `A` records: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
+4. Optional IPv6 `AAAA` records: `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`.
+5. DNS propagation may take up to 24–48 hours. After DNS resolves, return to **Settings > Pages** and enable **Enforce HTTPS**.
 
-## 2. Publish (pick one)
-**Cloudflare Pages / Netlify (recommended, free HTTPS)**
-1. Create a free account.
-2. Choose "Add new site" > "Deploy manually / Direct upload" and drag in this folder (or the ZIP).
-3. In the site's "Custom domains" section add your domain (and www).
-4. At your domain registrar, add the DNS records the host shows you:
-   - A record (or CNAME / nameservers) for the root domain
-   - CNAME for www
-5. Wait for DNS to update (usually minutes to a few hours, up to 48 hours). HTTPS turns on automatically.
+## Configure contact details and form
+Edit `assets/js/config.js`. Empty phone, email and hours values stay hidden.
+- `phone`: displayed and linked as a telephone number.
+- `email`: displayed and used as the mailto fallback.
+- `address`: headquarters or office address.
+- `hours`: office hours.
+- `formEndpoint`: Formspree or Web3Forms endpoint that accepts JSON.
 
-**cPanel / FTP hosting**
-Upload everything inside this folder to public_html/ so index.html sits at the top level.
+If `formEndpoint` is blank and `email` is set, submission opens the visitor's email app. If both are blank, the form explains that contact configuration is pending.
 
-## 3. Make the enquiry form work
-Create a free endpoint at Formspree or Web3Forms, then paste the URL into formEndpoint in config.js.
-Submissions arrive in your mailbox. If you leave formEndpoint empty, the form opens the visitor's
-email app addressed to your email instead.
+## Edit content later
+- Main page content: `index.html`
+- Colours, layout and responsive rules: `assets/css/style.css`
+- Menu, counters, animation and form logic: `assets/js/main.js`
+- Contact settings: `assets/js/config.js`
+- Images: replace files in `images/` using the same filenames, or update the paths in `index.html`. Keep WebP photos around 1400px wide and below roughly 150 KB.
 
-## 4. Business mailbox on your domain (e.g. info@yourdomain.com)
-Email is separate from the website and can live in the same DNS zone.
-1. Choose a provider: Microsoft 365 Business, Google Workspace, or Zoho Mail (has a free tier).
-2. Add your domain in the provider's admin portal and create the mailbox.
-3. Verify ownership by adding the TXT record they give you in your domain's DNS.
-4. Add the mail records they give you:
-   - MX - routes incoming mail
-   - SPF (TXT) - authorises the provider to send for you
-   - DKIM - signs outgoing mail
-   - DMARC (TXT) - protects against spoofing
-5. Send and receive a test mail, then add the account to Outlook / your phone.
-6. Put the address in config.js (email).
+## Testing completed
+- Responsive viewport checks: 390 × 844 and 1366 × 768.
+- Checked for horizontal overflow.
+- Checked JavaScript syntax and page load console errors.
+- Keyboard-accessible navigation, labels and form fields included.
+- Reduced-motion preference supported.
 
 ## Notes
-- Photos are AI-generated illustrations. Replace files in images/ with real photos of your team,
-  testing centres and deployments when available (keep the same file names).
-- Fonts load from Google Fonts; the site falls back to system fonts if offline.
-- Add registration/licence numbers, testimonials and real figures only when you can document them.
+All business facts were drawn from the supplied prospectus. Phone, email, office hours and the form endpoint remain intentionally blank until confirmed.
