@@ -7,35 +7,115 @@ document.querySelectorAll('.header nav a').forEach(a=>a.addEventListener('click'
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('visible');if(e.target.dataset.count&&!e.target.dataset.done){const end=+e.target.dataset.count;let n=0;const timer=setInterval(()=>{n=Math.min(end,n+Math.max(1,Math.ceil(end/28)));e.target.textContent=n;if(n===end)clearInterval(timer)},35);e.target.dataset.done='1'}if(e.target.classList.contains('dial'))e.target.classList.add('animate')}),{threshold:.2});
 document.querySelectorAll('.reveal,[data-count],.dial').forEach(x=>io.observe(x));
 document.getElementById('year').textContent=new Date().getFullYear();
-/* Requester type conditional fields */
+/* =========================================
+   REQUESTER TYPE CONDITIONAL FIELDS
+   ========================================= */
 
-const requesterType = document.getElementById('requesterType');
-const agencyFields = document.getElementById('agencyFields');
+const requesterType =
+    document.getElementById('requesterType');
 
-if(requesterType && agencyFields){
+const agencyFields =
+    document.getElementById('agencyFields');
+
+const organizationField =
+    document.getElementById('organizationField');
+
+const organizationInput =
+    document.getElementById('organizationInput');
+
+
+if (requesterType) {
 
     const updateRequesterFields = () => {
 
         const selectedType = requesterType.value;
 
-        const agencySelected =
+
+        /* =================================
+           AGENCY INFORMATION
+           ================================= */
+
+        const showAgencyFields =
             selectedType === 'Manpower Agency / Consultancy' ||
             selectedType === 'Recruitment Partner';
 
-        agencyFields.hidden = !agencySelected;
 
-        const agencyInputs =
-            agencyFields.querySelectorAll('input, select, textarea');
+        if (agencyFields) {
 
-        agencyInputs.forEach(field => {
-            field.disabled = !agencySelected;
-        });
+            agencyFields.hidden = !showAgencyFields;
+
+            const agencyInputs =
+                agencyFields.querySelectorAll(
+                    'input, select, textarea'
+                );
+
+            agencyInputs.forEach(field => {
+                field.disabled = !showAgencyFields;
+            });
+
+        }
+
+
+        /* =================================
+           AGENCY / COMPANY NAME
+           Hide for Agent/Other
+           ================================= */
+
+        const hideOrganization =
+            selectedType === 'Agent/Other';
+
+
+        if (organizationField && organizationInput) {
+
+            organizationField.hidden =
+                hideOrganization;
+
+            organizationInput.disabled =
+                hideOrganization;
+
+            organizationInput.required =
+                !hideOrganization;
+
+
+            /* Remove old entered value */
+
+            if (hideOrganization) {
+                organizationInput.value = '';
+            }
+
+
+            /* =================================
+               Adjust first contact row layout
+               ================================= */
+
+            const mainContactGrid =
+                organizationField.closest('.form-grid');
+
+
+            if (mainContactGrid) {
+
+                mainContactGrid.classList.toggle(
+                    'organization-hidden',
+                    hideOrganization
+                );
+
+            }
+
+        }
 
     };
 
-    requesterType.addEventListener('change', updateRequesterFields);
+
+    requesterType.addEventListener(
+        'change',
+        updateRequesterFields
+    );
+
+
+    /* Set correct form state on page load */
 
     updateRequesterFields();
+
 }
 const form=document.getElementById('enquiry');form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status');if(!form.reportValidity())return;const data=Object.fromEntries(new FormData(form));status.textContent='Submitting…';try{if(c.formEndpoint){const r=await fetch(c.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Thank you. Your manpower requirement has been submitted successfully. Our team will review the details and contact you shortly';form.reset()}else if(c.email){const body=Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');location.href=`mailto:${c.email}?subject=${encodeURIComponent('Manpower requirement from '+data.company)}&body=${encodeURIComponent(body)}`;status.textContent='Your email application has opened.'}else{status.textContent='Contact email or form endpoint is not configured yet. Update assets/js/config.js.'}}catch{status.textContent='The form could not be submitted. Please try again or contact us directly.'}});
 /* Visitor Counter */
