@@ -65,6 +65,271 @@
 
 <form id="enquiry">
 
+  <div class="form-intro">
+    <h3>Requirement Details</h3>
+    <p>
+      Please provide complete information to help our team prepare the
+      appropriate candidate shortlist.
+    </p>
+  </div>
+
+  <div class="requester-type-field">
+
+    <label for="requesterType">
+      I am submitting this requirement as*
+    </label>
+
+    <select id="requesterType" name="requester_type" required>
+      <option value="">Select requester type</option>
+      <option value="Foreign Employer / Company">
+        Foreign Employer / Company
+      </option>
+      <option value="Manpower Agency / Consultancy">
+        Manpower Agency / Consultancy
+      </option>
+      <option value="Recruitment Partner">
+        Recruitment Partner
+      </option>
+      <option value="Other Business Partner">
+        Other Business Partner
+      </option>
+    </select>
+
+  </div>
+
+  <div class="form-grid">
+
+    <label>
+      Contact Person Name*
+      <input
+        type="text"
+        name="name"
+        autocomplete="name"
+        required
+      >
+    </label>
+
+    <label>
+      Agency / Company Name*
+      <input
+        type="text"
+        name="organization"
+        autocomplete="organization"
+        required
+      >
+    </label>
+
+    <label>
+      Business Email*
+      <input
+        type="email"
+        name="email"
+        autocomplete="email"
+        required
+      >
+    </label>
+
+    <label>
+      Phone / WhatsApp Number*
+      <input
+        type="tel"
+        name="phone"
+        autocomplete="tel"
+        required
+      >
+    </label>
+
+  </div>
+
+  <!-- Displayed for manpower agencies and recruitment partners -->
+  <div id="agencyFields" class="conditional-fields" hidden>
+
+    <div class="conditional-heading">
+      <h3>Agency Information</h3>
+      <p>
+        These details help us understand the agency mandate and end-client
+        requirement.
+      </p>
+    </div>
+
+    <div class="form-grid">
+
+      <label>
+        Agency Registration / Licence Number
+        <input
+          type="text"
+          name="agency_registration"
+        >
+      </label>
+
+      <label>
+        Agency Location
+        <input
+          type="text"
+          name="agency_location"
+          placeholder="City, State, Country"
+        >
+      </label>
+
+      <label>
+        Requirement Source / End Client
+        <input
+          type="text"
+          name="end_client"
+          placeholder="End-client name, if permitted"
+        >
+      </label>
+
+      <label>
+        Partnership Type
+        <select name="partnership_type">
+          <option value="">Select partnership type</option>
+          <option value="Candidate Sourcing">Candidate Sourcing</option>
+          <option value="Skill Testing">Skill Testing</option>
+          <option value="Documentation and Visa Processing">
+            Documentation and Visa Processing
+          </option>
+          <option value="Complete Recruitment Support">
+            Complete Recruitment Support
+          </option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+    </div>
+
+  </div>
+
+  <div class="requirement-heading">
+    <h3>Manpower Requirement</h3>
+  </div>
+
+  <div class="form-grid">
+
+    <label>
+      Positions / Job Titles*
+      <input
+        type="text"
+        name="positions"
+        placeholder="Example: Welders, Drivers, Engineers"
+        required
+      >
+    </label>
+
+    <label>
+      Required Headcount*
+      <input
+        type="number"
+        name="headcount"
+        min="1"
+        required
+      >
+    </label>
+
+    <label>
+      Destination Country*
+      <input
+        type="text"
+        name="country"
+        placeholder="Example: Saudi Arabia"
+        required
+      >
+    </label>
+
+    <label>
+      Target Mobilisation Date
+      <input
+        type="date"
+        name="date"
+      >
+    </label>
+
+    <label>
+      Industry / Project Type
+      <select name="industry">
+        <option value="">Select industry</option>
+        <option value="Construction and Infrastructure">
+          Construction and Infrastructure
+        </option>
+        <option value="Engineering and Technical">
+          Engineering and Technical
+        </option>
+        <option value="Oil and Gas">Oil and Gas</option>
+        <option value="IT and Corporate">IT and Corporate</option>
+        <option value="Healthcare">Healthcare</option>
+        <option value="Hospitality">Hospitality</option>
+        <option value="Transportation and Drivers">
+          Transportation and Drivers
+        </option>
+        <option value="Warehouse and Logistics">
+          Warehouse and Logistics
+        </option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+
+    <label>
+      Employment Type
+      <select name="employment_type">
+        <option value="">Select employment type</option>
+        <option value="Permanent">Permanent</option>
+        <option value="Fixed-Term Contract">Fixed-Term Contract</option>
+        <option value="Project-Based">Project-Based</option>
+        <option value="Temporary">Temporary</option>
+      </select>
+    </label>
+
+  </div>
+
+  <label class="full-width-field">
+    Salary, Benefits and Contract Details
+    <textarea
+      name="details"
+      rows="5"
+      placeholder="Include salary range, accommodation, food, transport, duty hours, overtime, contract duration and other benefits."
+    ></textarea>
+  </label>
+
+  <label class="full-width-field">
+    Additional Notes
+    <textarea
+      name="additional_notes"
+      rows="3"
+      placeholder="Mention interview method, candidate experience, certifications, trade-test requirements or other instructions."
+    ></textarea>
+  </label>
+
+  <label class="consent-field">
+    <input
+      type="checkbox"
+      name="business_consent"
+      value="Confirmed"
+      required
+    >
+    <span>
+      I confirm that this is a genuine business requirement and that the
+      submitted information may be used by Daraksha Overseas LLP to contact
+      me regarding recruitment services.
+    </span>
+  </label>
+
+  <div class="form-actions">
+
+    <button class="btn" type="submit">
+      Submit requirement
+    </button>
+
+    <span class="required-note">
+      Fields marked * are required
+    </span>
+
+  </div>
+
+  <p class="form-status" role="status" aria-live="polite"></p>
+
+</form>
+
+
   <div class="form-grid">
 
     <label>
