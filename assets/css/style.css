@@ -1185,3 +1185,557 @@ section[id]{
         scroll-margin-top:92px;
     }
 }
+/* =========================================================
+   FINAL MOBILE RESPONSIVE OVERRIDES
+   Keep this block at the VERY END of style.css
+   ========================================================= */
+
+@media(max-width:760px){
+
+    /* ================================
+       BODY + FIXED HEADER
+       ================================ */
+
+    body{
+        padding-top:76px !important;
+        overflow-x:hidden;
+    }
+
+    .header{
+        position:fixed !important;
+        top:0 !important;
+        left:0 !important;
+        right:0 !important;
+
+        width:100% !important;
+        height:76px !important;
+
+        z-index:9999 !important;
+
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+
+        padding:7px 16px !important;
+
+        background:rgba(255,255,255,.98);
+
+        box-shadow:
+            0 5px 20px rgba(7,31,74,.12);
+    }
+
+
+    /* ================================
+       HEADER BRAND
+       ================================ */
+
+    .brand{
+        min-width:0;
+        gap:9px;
+    }
+
+    .brand img{
+        width:56px !important;
+        height:56px !important;
+        flex-shrink:0;
+    }
+
+    .brand span{
+        width:auto;
+        max-width:210px;
+        min-width:0;
+    }
+
+    .brand b{
+        display:block;
+
+        font-size:.95rem !important;
+        line-height:1.1;
+
+        white-space:normal;
+    }
+
+    .brand small{
+        display:none !important;
+    }
+
+
+    /* ================================
+       MOBILE MENU
+       ================================ */
+
+    .header > .btn{
+        display:none !important;
+    }
+
+    .menu{
+        display:block !important;
+        position:relative;
+        z-index:10001;
+
+        padding:8px;
+
+        background:transparent;
+        border:0;
+
+        color:var(--navy2);
+        font-size:1.6rem;
+
+        cursor:pointer;
+    }
+
+    .header nav{
+        display:none;
+
+        position:fixed !important;
+
+        top:76px !important;
+        left:0 !important;
+        right:0 !important;
+
+        z-index:9998;
+
+        flex-direction:column;
+        align-items:stretch;
+
+        gap:0;
+
+        padding:12px 20px 22px;
+
+        background:#ffffff;
+
+        border-top:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+
+        box-shadow:
+            0 18px 30px rgba(10,42,102,.16);
+    }
+
+    .header.open nav{
+        display:flex !important;
+    }
+
+    .header nav a{
+        display:block;
+        padding:11px 5px;
+    }
+
+
+    /* ================================
+       ANCHOR OFFSET
+       ================================ */
+
+    section[id]{
+        scroll-margin-top:90px;
+    }
+
+
+    /* ================================
+       HERO
+       ================================ */
+
+    .hero{
+        min-height:760px;
+        height:auto;
+
+        padding:
+            78px
+            18px
+            215px !important;
+
+        align-items:flex-start;
+    }
+
+    .hero-copy{
+        width:100% !important;
+        max-width:none;
+    }
+
+    .hero h1{
+        font-size:clamp(2.45rem,11vw,3.8rem);
+    }
+
+    .hero-copy > p{
+        font-size:.96rem;
+        line-height:1.6;
+    }
+
+    .hero-shade{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(3,20,55,.94),
+                rgba(3,20,55,.78) 70%,
+                rgba(3,20,55,.38)
+            );
+    }
+
+    .actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .actions .btn{
+        width:100%;
+    }
+
+    .ticks{
+        display:grid;
+        gap:9px;
+    }
+
+
+    /* ================================
+       HERO FLOATING CARDS
+       ================================ */
+
+    .float-cards{
+        left:18px !important;
+        right:18px !important;
+        bottom:28px;
+
+        grid-template-columns:repeat(3,minmax(0,1fr));
+
+        gap:7px;
+    }
+
+    .float-cards > div{
+        min-width:0;
+        padding:.8rem .6rem;
+    }
+
+    .float-cards b{
+        font-size:.9rem;
+    }
+
+    .float-cards span{
+        font-size:.62rem;
+        line-height:1.3;
+    }
+
+
+    /* ================================
+       TRUST + STATISTICS
+       ================================ */
+
+    .trustbar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats{
+        width:calc(100% - 32px) !important;
+
+        margin:20px auto 0 !important;
+
+        grid-template-columns:1fr 1fr;
+
+        border-radius:18px !important;
+    }
+
+
+    /* ================================
+       GENERAL SECTIONS
+       ================================ */
+
+    .section{
+        padding:
+            65px
+            20px !important;
+    }
+
+    .cards.three,
+    .pillars,
+    .people,
+    .benefits,
+    .vet,
+    .split,
+    .process-photo,
+    .timeline{
+        grid-template-columns:1fr !important;
+    }
+
+
+    /* ================================
+       CONTACT SECTION
+       Reset desktop width changes
+       ================================ */
+
+    .contact{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+
+        gap:36px !important;
+
+        padding:
+            65px
+            20px !important;
+    }
+
+    .contact-details{
+        width:100% !important;
+        max-width:none !important;
+
+        justify-self:stretch !important;
+
+        padding-top:0 !important;
+    }
+
+    .contact-details h2,
+    .contact-details > p,
+    .contact-details ul{
+        width:100%;
+        max-width:none !important;
+    }
+
+
+    /* ================================
+       REQUIREMENT FORM
+       ================================ */
+
+    #enquiry{
+        width:100% !important;
+        max-width:none !important;
+
+        justify-self:stretch !important;
+
+        padding:
+            22px
+            18px !important;
+
+        border-radius:18px;
+    }
+
+    .form-grid{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+
+        column-gap:0 !important;
+        row-gap:15px;
+    }
+
+    #enquiry label{
+        width:100%;
+        min-width:0;
+    }
+
+    #enquiry input,
+    #enquiry select,
+    #enquiry textarea{
+        width:100% !important;
+        min-width:0;
+
+        font-size:.84rem;
+    }
+
+    .requester-type-field{
+        width:100%;
+
+        padding:14px;
+    }
+
+    .conditional-fields{
+        width:100%;
+
+        padding:15px;
+    }
+
+    .full-width-field{
+        width:100%;
+    }
+
+
+    /* Agent/Other */
+
+    .form-grid.organization-hidden
+    label:first-child{
+        grid-column:auto !important;
+    }
+
+
+    /* Consent */
+
+    .consent-field{
+        width:100%;
+
+        padding:12px;
+
+        display:flex !important;
+    }
+
+
+    /* Submit */
+
+    .form-actions{
+        display:flex;
+
+        flex-direction:column !important;
+        align-items:stretch !important;
+
+        gap:10px;
+    }
+
+    .form-actions .btn{
+        width:100%;
+        min-width:0;
+    }
+
+    .required-note{
+        text-align:center;
+    }
+
+
+    /* ================================
+       OTHER MOBILE SECTIONS
+       ================================ */
+
+    .pledge{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hub{
+        flex-direction:column;
+    }
+
+    .line{
+        width:2px;
+        height:35px;
+        flex:none;
+    }
+
+    .sector-mosaic{
+        grid-template-columns:1fr !important;
+    }
+
+    .sector-mosaic figure:last-child{
+        grid-column:auto !important;
+    }
+
+
+    /* ================================
+       FOOTER
+       ================================ */
+
+    footer{
+        grid-template-columns:1fr !important;
+
+        gap:22px;
+
+        padding:
+            36px
+            20px;
+
+        text-align:center;
+    }
+
+    footer .foot-brand{
+        width:100%;
+
+        justify-content:center;
+
+        gap:12px;
+
+        text-align:left;
+    }
+
+    footer .foot-brand img{
+        width:72px;
+        height:72px;
+    }
+
+    footer nav{
+        width:100%;
+
+        display:flex;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+        gap:10px 18px;
+    }
+
+    footer > p{
+        width:100%;
+
+        margin:0 auto;
+
+        text-align:center;
+    }
+
+    .footer-credit{
+        width:100% !important;
+
+        justify-self:stretch !important;
+
+        align-items:center !important;
+
+        text-align:center !important;
+    }
+
+    .footer-credit small,
+    .developer-credit{
+        width:100%;
+
+        white-space:normal !important;
+
+        text-align:center;
+    }
+
+}
+    @media(max-width:420px){
+
+    .header{
+        padding-left:12px !important;
+        padding-right:12px !important;
+    }
+
+    .brand img{
+        width:52px !important;
+        height:52px !important;
+    }
+
+    .brand span{
+        max-width:200px;
+    }
+
+    .brand b{
+        font-size:.9rem !important;
+    }
+
+    .hero{
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+
+    .float-cards{
+        left:14px !important;
+        right:14px !important;
+    }
+
+    .trustbar{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        width:calc(100% - 28px) !important;
+    }
+
+    .contact{
+        padding:
+            55px
+            16px !important;
+    }
+
+    #enquiry{
+        padding:
+            19px
+            14px !important;
+    }
+
+    footer{
+        padding:
+            32px
+            16px;
+    }
+
+}
