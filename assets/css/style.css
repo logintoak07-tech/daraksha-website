@@ -532,7 +532,21 @@ select:focus{
 .contact{
     grid-template-columns:minmax(320px,.75fr) minmax(620px,1.35fr);
 }
+.contact-details{
+    width:100%;
+    max-width:680px;
+    justify-self:start;
+    padding-top:0;
+}
 
+.contact-details h2{
+    max-width:520px;
+}
+
+.contact-details > p,
+.contact-details ul{
+    max-width:580px;
+}
 @media(max-width:760px){
 
   .header{
@@ -771,6 +785,18 @@ select:focus{
 
 .required-note{
     text-align:c*nter;
+}
+    .contact-details{
+    width:100%;
+    max-width:none;
+    justify-self:stretch;
+    padding-top:0;
+}
+
+.contact-details h2,
+.contact-details > p,
+.contact-details ul{
+    max-width:none;
 }
   /* =========================================
      MOBILE FOOTER
