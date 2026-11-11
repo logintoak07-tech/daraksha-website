@@ -299,6 +299,24 @@ select:focus{
     line-height:1.35;
 }
 
+
+/* Respect HTML hidden attribute */
+
+#enquiry [hidden]{
+    display:none !important;
+}
+
+
+/* Agent/Other form layout */
+
+.form-grid.organization-hidden #organizationField{
+    display:none !important;
+}
+
+.form-grid.organization-hidden label:first-child{
+    grid-column:1 / -1;
+}
+
 #enquiry*h3{
     font-family:"Playfair Disp*ay", Georgia, serif;
     color:var*--navy2);
