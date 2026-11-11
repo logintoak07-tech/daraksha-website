@@ -7,7 +7,37 @@ document.querySelectorAll('.header nav a').forEach(a=>a.addEventListener('click'
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('visible');if(e.target.dataset.count&&!e.target.dataset.done){const end=+e.target.dataset.count;let n=0;const timer=setInterval(()=>{n=Math.min(end,n+Math.max(1,Math.ceil(end/28)));e.target.textContent=n;if(n===end)clearInterval(timer)},35);e.target.dataset.done='1'}if(e.target.classList.contains('dial'))e.target.classList.add('animate')}),{threshold:.2});
 document.querySelectorAll('.reveal,[data-count],.dial').forEach(x=>io.observe(x));
 document.getElementById('year').textContent=new Date().getFullYear();
-const form=document.getElementById('enquiry');form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status');if(!form.reportValidity())return;const data=Object.fromEntries(new FormData(form));status.textContent='Submitting…';try{if(c.formEndpoint){const r=await fetch(c.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Thank you. Your requirement has been submitted.';form.reset()}else if(c.email){const body=Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');location.href=`mailto:${c.email}?subject=${encodeURIComponent('Manpower requirement from '+data.company)}&body=${encodeURIComponent(body)}`;status.textContent='Your email application has opened.'}else{status.textContent='Contact email or form endpoint is not configured yet. Update assets/js/config.js.'}}catch{status.textContent='The form could not be submitted. Please try again or contact us directly.'}});
+/* Requester type conditional fields */
+
+const requesterType = document.getElementById('requesterType');
+const agencyFields = document.getElementById('agencyFields');
+
+if(requesterType && agencyFields){
+
+    const updateRequesterFields = () => {
+
+        const selectedType = requesterType.value;
+
+        const agencySelected =
+            selectedType === 'Manpower Agency / Consultancy' ||
+            selectedType === 'Recruitment Partner';
+
+        agencyFields.hidden = !agencySelected;
+
+        const agencyInputs =
+            agencyFields.querySelectorAll('input, select, textarea');
+
+        agencyInputs.forEach(field => {
+            field.disabled = !agencySelected;
+        });
+
+    };
+
+    requesterType.addEventListener('change', updateRequesterFields);
+
+    updateRequesterFields();
+}
+const form=document.getElementById('enquiry');form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('.form-status');if(!form.reportValidity())return;const data=Object.fromEntries(new FormData(form));status.textContent='Submitting…';try{if(c.formEndpoint){const r=await fetch(c.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});if(!r.ok)throw new Error();status.textContent='Thank you. Your manpower requirement has been submitted successfully. Our team will review the details and contact you shortly';form.reset()}else if(c.email){const body=Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');location.href=`mailto:${c.email}?subject=${encodeURIComponent('Manpower requirement from '+data.company)}&body=${encodeURIComponent(body)}`;status.textContent='Your email application has opened.'}else{status.textContent='Contact email or form endpoint is not configured yet. Update assets/js/config.js.'}}catch{status.textContent='The form could not be submitted. Please try again or contact us directly.'}});
 /* Visitor Counter */
 
 const visitorCount = document.getElementById('visitor-count');
