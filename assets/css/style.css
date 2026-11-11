@@ -79,6 +79,46 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     color:#c49a2c;
     font-weight:700;
 }
+/* =========================================
+   COMPANY / INDIVIDUAL SELECTOR
+   ========================================= */
+
+.customer-type-field{
+    margin-bottom:18px;
+}
+
+.customer-type-field label{
+    display:block;
+    color:var(--navy2);
+    font-family:"Inter", Arial, sans-serif;
+    font-size:.82rem;
+    font-weight:700;
+}
+
+.customer-type-field select{
+    display:block;
+    width:100%;
+    margin-top:.35rem;
+    padding:.85rem 1rem;
+
+    border:1px solid #cbd7e7;
+    border-radius:10px;
+
+    background:#fff;
+    color:var(--ink);
+
+    font-family:"Inter", Arial, sans-serif;
+    font-size:.86rem;
+
+    min-height:48px;
+}
+
+.customer-type-field select:focus{
+    outline:3px solid rgba(22,80,184,.16);
+    border-color:var(--blue);
+}
+
+
 @media(max-width:1040px){
 
   .header{
