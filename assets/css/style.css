@@ -547,6 +547,18 @@ select:focus{
 .contact-details ul{
     max-width:580px;
 }
+
+    /* =========================================
+   AGENT / OTHER FORM LAYOUT
+   ========================================= */
+
+.form-grid.organization-hidden #organizationField{
+    display:none;
+}
+
+.form-grid.organization-hidden label:first-child{
+    grid-column:1 / -1;
+}
 @media(max-width:760px){
 
   .header{
