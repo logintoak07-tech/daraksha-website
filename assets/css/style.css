@@ -221,6 +221,169 @@ select:focus{
     font-size:.82rem;
     font-weight:700;
 }
+
+/* Daraksha adaptive requirement form */
+
+.contact{
+    align-items:start*
+}
+
+#enquiry{
+    font-family:"Int*r", Arial, sans-serif;
+}
+
+#enquiry*h3{
+    font-family:"Playfair Disp*ay", Georgia, serif;
+    color:var*--navy2);
+    font-weight:700;
+   *letter-spacing:0;
+}
+
+#enquiry labe*{
+    font-family:"Inter", Arial, *ans-serif;
+    color:var(--navy2);*    font-size:.82rem;
+    font-wei*ht:700;
+    line-height:1.4;
+}
+
+#e*quiry input,
+#enquiry select,
+#enq*iry textarea{
+    font-family:"Int*r", Arial, sans-serif;
+    font-si*e:.86rem;
+    font-weight:400;
+   *color:var(--ink);
+}
+
+#enquiry inpu*::placeholder,
+#enquiry textarea::*laceholder{
+    color:#7b879d;
+   *opacity:1;
+}
+
+.form-intro{
+    mar*in-bottom:20px;
+    padding-bottom*16px;
+    border-bottom:1px solid *ar(--line);
+}
+
+.form-intro h3,
+.co*ditional-heading h3,
+.requirement-*eading h3{
+    margin:0 0 5px;
+   *font-family:"Playfair Display", Ge*rgia, serif;
+    font-size:1.3rem;*    color:var(--navy2);
+}
+
+.form-i*tro p,
+.conditional-heading p{
+   *margin:0;
+    color:var(--muted);
+*   font-size:.82rem;
+    line-heig*t:1.55;
+}
+
+.requester-type-field{
+*   margin-bottom:24px;
+    padding*18px;
+    background:#f5f8fd;
+    *order:1px solid rgba(22,80,184,.16*;
+    border-radius:14px;
+}
+
+#enqu*ry input,
+#enquiry select,
+#enquir* textarea{
+    display:block;
+    *idth:100%;
+    margin-top:.35rem;
+*   padding:.85rem 1rem;
+    border*1px solid #c7d5e8;
+    border-radi*s:10px;
+    background:#fff;
+    t*ansition:border-color .2s ease, bo*-shadow .2s ease;
+}
+
+#enquiry sele*t{
+    min-height:52px;
+    cursor*pointer;
+}
+
+#enquiry input:focus,
+*enquiry select:focus,
+#enquiry tex*area:focus{
+    border-color:var(-*blue);
+    box-shadow:0 0 0 3px rg*a(22,80,184,.10);
+    outline:none*
+}
+
+.conditional-fields{
+    margi*:22px 0;
+    padding:20px;
+    bor*er:1px solid rgba(196,154,44,.36);*    border-radius:16px;
+    backgr*und:#fffaf0;
+}
+
+.conditional-field*[hidden]{
+    display:none;
+}
+
+.co*ditional-heading{
+    margin-botto*:16px;
+}
+
+.requirement-heading{
+  * margin:26px 0 18px;
+    padding-b*ttom:11px;
+    border-bottom:1px s*lid rgba(10,42,102,.12);
+}
+
+.full-*idth-field{
+    display:block;
+   *margin-top:16px;
+}
+
+.consent-field*
+    display:flex !important;
+    *lign-items:flex-start;
+    gap:10p*;
+    margin-top:18px;
+    padding*14px;
+    border-radius:12px;
+    *ackground:#f4f7fc;
+    color:var(-*muted) !important;
+    font-size:.*6rem !important;
+    line-height:1*55 !important;
+}
+
+.consent-field i*put{
+    width:18px !important;
+  * height:18px;
+    margin:3px 0 0 !*mportant;
+    padding:0 !important*
+    flex:0 0 18px;
+}
+
+.form-actio*s{
+    display:flex;
+    align-ite*s:center;
+    gap:16px;
+    margin*top:18px;
+}
+
+.required-note{
+    c*lor:var(--muted);
+    font-size:.7*rem;
+}
+
+.form-status{
+    min-heig*t:24px;
+    margin-top:13px;
+    f*nt-family:"Inter", Arial, sans-ser*f;
+    font-size:.82rem;
+    font-*eight:700;
+}
+
 @media(max-width:1040px){
 
   .header{
@@ -498,6 +661,27 @@ select:focus{
 
 .required-note{
     text-align:center;
+}
+
+    .requester-type-f*eld{
+    padding:14px;
+}
+
+.conditi*nal-fields{
+    padding:16px;
+}
+
+.*orm-actions{
+    flex-direction:co*umn;
+    align-items:stretch;
+}
+
+.*orm-actions .btn{
+    width:100%;
+*
+
+.required-note{
+    text-align:c*nter;
 }
   /* =========================================
      MOBILE FOOTER
