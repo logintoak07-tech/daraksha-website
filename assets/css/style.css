@@ -90,6 +90,137 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     color:#c49a2c;
     font-weight:700;
 }
+
+
+/* =========================================
+   ADAPTIVE REQUIREMENT FORM
+   ========================================= */
+
+.form-intro{
+    margin-bottom:20px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+}
+
+.form-intro h3,
+.conditional-heading h3,
+.requirement-heading h3{
+    margin:0 0 5px;
+    color:var(--navy2);
+    font-size:1.22rem;
+}
+
+.form-intro p,
+.conditional-heading p{
+    margin:0;
+    color:var(--muted);
+    font-size:.82rem;
+    line-height:1.55;
+}
+
+.requester-type-field{
+    margin-bottom:20px;
+    padding:18px;
+    border:1px solid rgba(22,80,184,.18);
+    border-radius:14px;
+    background:#f4f7fc;
+}
+
+.requester-type-field label{
+    margin:0;
+}
+
+input,
+textarea,
+select{
+    display:block;
+    width:100%;
+    margin-top:.35rem;
+    padding:.85rem 1rem;
+    border:1px solid #cbd7e7;
+    border-radius:10px;
+    background:#fff;
+    color:var(--ink);
+    font:inherit;
+}
+
+select{
+    min-height:52px;
+    cursor:pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    outline:3px solid rgba(22,80,184,.16);
+    border-color:var(--blue);
+}
+
+.conditional-fields{
+    margin:22px 0;
+    padding:20px;
+    border:1px solid rgba(196,154,44,.36);
+    border-radius:16px;
+    background:#fffaf0;
+}
+
+.conditional-fields[hidden]{
+    display:none;
+}
+
+.conditional-heading{
+    margin-bottom:16px;
+}
+
+.requirement-heading{
+    margin:24px 0 14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line);
+}
+
+.full-width-field{
+    margin-top:16px;
+}
+
+.consent-field{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-top:18px;
+    padding:14px;
+    border-radius:12px;
+    background:#f4f7fc;
+    color:var(--muted);
+    font-size:.78rem;
+    line-height:1.5;
+}
+
+.consent-field input{
+    width:18px;
+    height:18px;
+    margin:3px 0 0;
+    padding:0;
+    flex:0 0 18px;
+}
+
+.form-actions{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    margin-top:18px;
+}
+
+.required-note{
+    color:var(--muted);
+    font-size:.72rem;
+}
+
+.form-status{
+    min-height:24px;
+    margin-top:13px;
+    font-size:.82rem;
+    font-weight:700;
+}
 @media(max-width:1040px){
 
   .header{
@@ -348,7 +479,26 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
     height:112px;
   }
 
+.requester-type-field{
+    padding:14px;
+}
 
+.conditional-fields{
+    padding:16px;
+}
+
+.form-actions{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.form-actions .btn{
+    width:100%;
+}
+
+.required-note{
+    text-align:center;
+}
   /* =========================================
      MOBILE FOOTER
      ========================================= */
@@ -520,7 +670,20 @@ footer{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:center;
   .contact form{
     padding:1.25rem;
   }
+.form-intro h3,
+.conditional-heading h3,
+.requirement-heading h3{
+    font-size:1.08rem;
+}
 
+.requester-type-field,
+.conditional-fields{
+    padding:13px;
+}
+
+.consent-field{
+    padding:12px;
+}
 
   /* =========================================
      SMALL MOBILE FOOTER
